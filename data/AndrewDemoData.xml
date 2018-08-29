@@ -10,8 +10,6 @@
     <mantle.party.PartySettingType partySettingTypeId="EmployerName" description="Employer Name"/>
     <mantle.party.PartySettingType partySettingTypeId="PreferredLanguage" description="Preferred Language"/>
 
-    <moqui.screen.SubscreensItem screenLocation="component://webroot/screen/webroot/apps.xml" subscreenName="AndrewDemo" userGroupId="ALL_USERS" menuIndex="6" menuInclude="Y" menuTitle="Andrew Demo" subscreenLocation="component://AndrewDemo/screen/AndrewDemo.xml"/>
-
 	<!-- Security settings - allow admins to have authorization to access the artifact group -->
 	<moqui.security.ArtifactGroup artifactGroupId="APPLICATION"/>
 	<moqui.security.ArtifactAuthz userGroupId="ADMIN" authzActionEnumId="AUTHZA_ALL" artifactGroupId="APPLICATION" authzTypeEnumId="AUTHZT_ALLOW"/>
