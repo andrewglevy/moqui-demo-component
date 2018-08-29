@@ -3,8 +3,14 @@
 	<!-- verb and noun are arbitrary. location is folder name and file name. -->
 	<service verb="run" noun="Logger" type="java" location="com.mk.moqui.sample.Sample" method="logger">
 		<in-parameters>
+			<parameter name="firstName"/>
+			<parameter name="lastName"/>
 		</in-parameters>
 		<out-parameters>
+			<parameter name="firstName"/>
+			<parameter name="lastName"/>
 		</out-parameters>
+		<actions>
+		</actions>
 	</service>
 </services>

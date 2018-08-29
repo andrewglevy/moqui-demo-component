@@ -26,6 +26,8 @@
 			<parameter name="verifyEmailAddress"/>
 		</in-parameters>
 		<out-parameters>
+			<parameter name="firstName"/>
+			<parameter name="lastName"/>
 		</out-parameters>
 		<actions>
 			<set field="middleName" from="middleInitial"/>
