@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml type="seed">
+    <moqui.basic.Enumeration enumId="EmpsDisabled" enumTypeId="EmploymentStatus" description="Disabled"/>
+    <moqui.basic.Enumeration enumId="EmpsMilitary" enumTypeId="EmploymentStatus" description="Military"/>
+    <moqui.basic.Enumeration enumId="EmpsOther" enumTypeId="EmploymentStatus" description="Other"/>
+
+    <mantle.party.contact.ContactMechPurpose contactMechPurposeId="PhoneSecondary" contactMechTypeEnumId="CmtTelecomNumber" description="Phone - Secondary"/>
+
+    <mantle.party.PartySettingType partySettingTypeId="AnnualIncome" validRegexp=" \$[-0-9.,]+[-0-9.,a-zA-Z]*\b" description="Annual Income"/>
+    <mantle.party.PartySettingType partySettingTypeId="EmployerName" description="Employer Name"/>
+    <mantle.party.PartySettingType partySettingTypeId="PreferredLanguage" description="Preferred Language"/>
+
+    <moqui.screen.SubscreensItem screenLocation="component://webroot/screen/webroot/apps.xml" subscreenName="AndrewDemo" userGroupId="ALL_USERS" menuIndex="6" menuInclude="Y" menuTitle="Andrew Demo" subscreenLocation="component://AndrewDemo/screen/AndrewDemo.xml"/>
+
+	<!-- Security settings - allow admins to have authorization to access the artifact group -->
+	<moqui.security.ArtifactGroup artifactGroupId="APPLICATION"/>
+	<moqui.security.ArtifactAuthz userGroupId="ADMIN" authzActionEnumId="AUTHZA_ALL" artifactGroupId="APPLICATION" authzTypeEnumId="AUTHZT_ALLOW"/>
+	<artifactGroups artifactGroupId="APPLICATION">
+		<artifacts artifactName="component://AndrewDemo/screen/AndrewDemo.xml" artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="Y" nameIsPattern="N"/>
+		<artifacts artifactName="AndrewDemo.FormSubmitService.create#CCOSApplication" artifactTypeEnumId="AT_SERVICE" inheritAuthz="Y" nameIsPattern="N"/>
+	</artifactGroups>
+
+</entity-facade-xml>

@@ -1,0 +1,70 @@
+<services>
+	<service verb="create" noun="CCOSApplication" type="inline" allow-remote="true" authenticate="anonymous-all">
+		<in-parameters>
+			<parameter name="employerName"/>
+			<parameter name="annualIncome"/>
+			<parameter name="firstName"/>
+			<parameter name="middleInitial"/>
+			<parameter name="lastName"/>
+			<parameter name="suffix"/>
+			<parameter name="dateOfBirth"/>
+			<parameter name="productId"/>
+			<parameter name="statusId"/>
+			<parameter name="customerReferenceId"/>
+			<parameter name="entryDate"/>
+			<parameter name="socialSecurityNumber"/>
+			<parameter name="employmentStatus"/>
+			<parameter name="preferredLanguage"/>
+			<parameter name="primaryPhoneNumber"/>
+			<parameter name="secondaryPhoneNumber"/>
+			<parameter name="address1"/>
+			<parameter name="address2"/>
+			<parameter name="city"/>
+			<parameter name="postalCode"/>
+			<parameter name="state"/>
+			<parameter name="emailAddress"/>
+			<parameter name="verifyEmailAddress"/>
+		</in-parameters>
+		<out-parameters>
+		</out-parameters>
+		<actions>
+			<set field="middleName" from="middleInitial"/>
+			<set field="birthDate" from="dateOfBirth"/>
+			<set field="employmentStatusEnumId" value="EmpsDisabled"/>
+			<service-call name="mantle.party.PartyServices.create#Person" in-map="context" out-map="context"/>
+			<service-call name="AndrewDemoServices.SampleService.run#Logger" in-map="context" out-map="context"/>
+			<!-- <service-call name="component://AndrewDemo/service/SampleService.xml" in-map="context" out-map="context"/> -->
+			<!-- <set field="orderId" from="context.orderId"/>
+        <set field="statusId" value="OrderCompleted"/>
+        <set field="entryDate" from="ec.user.nowTimestamp"/>
+        <service-call name="create#mantle.order.OrderHeader" in-map="context" out-map="context"/>
+        <set field="orderId" from="context.orderId"/>
+        <set field="statusId" from="context.statusId"/>
+        <service-call name="create#mantle.order.OrderPart" in-map="context" out-map="context"/>
+        <set field="customerReferenceId" from="context.partyId"/>
+        <set field="orderId" from="context.orderId"/>
+        <service-call name="mantle.order.OrderServices.create#OrderItem" in-map="context" out-map="context"/>
+        <set field="partyIdTypeEnumId" value="PtidSsn"/>
+        <set field="idValue" from="socialSecurityNumber"/>
+        <service-call name="create#mantle.party.PartyIdentification" in-map="context" out-map="context"/>
+        <set field="telecomContactMechPurposeId" value="PhoneSecondary"/>
+        <set field="contactNumber" from="secondaryPhoneNumber"/>
+        <service-call name="mantle.party.ContactServices.store#PartyContactInfo" in-map="context" out-map="secondaryPhoneContact"/>
+        <set field="emailContactMechPurposeId" value="EmailPrimary"/>
+        <set field="telecomContactMechPurposeId" value="PhonePrimary"/>
+        <set field="postalContactMechPurposeId" value="PostalPrimary"/>
+        <set field="stateProvinceGeoId" from="state"/>
+        <set field="contactNumber" from="primaryPhoneNumber"/>
+        <service-call name="mantle.party.ContactServices.store#PartyContactInfo" in-map="context" out-map="context"/>
+        <set field="partySettingTypeId" value="AnnualIncome"/>
+        <set field="settingValue" from="annualIncome"/>
+        <service-call name="store#mantle.party.PartySetting" in-map="context" out-map="context"/>
+        <set field="partySettingTypeId" value="EmployerName"/>
+        <set field="settingValue" from="employerName"/>
+        <service-call name="store#mantle.party.PartySetting" in-map="context" out-map="context"/>
+        <set field="partySettingTypeId" value="PreferredLanguage"/>
+        <set field="settingValue" from="preferredLanguage"/>
+        <service-call name="store#mantle.party.PartySetting" in-map="context" out-map="context"/> -->
+		</actions>
+	</service>
+</services>
